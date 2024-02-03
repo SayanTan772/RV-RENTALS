@@ -13,10 +13,12 @@ export default function Home() {
 
   useEffect(() => {
     function Resize() {
-      setWidth( (window.innerWidth < 601) ? 285 : 480);
+      if (typeof window !== 'undefined') {
+        setWidth((window.innerWidth < 601) ? 285 : 480);
 
-      if (window.innerWidth < 601) {
-        setMobileView(true);
+        if (window.innerWidth < 601) {
+          setMobileView(true);
+        }
       }
     }
     Resize();
